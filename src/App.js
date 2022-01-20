@@ -1,33 +1,33 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import './App.css';
 import Input from './components/Input';
 import TodoItem from './components/TodoItem';
-import { useSelector } from 'react-redux';
 import { listTodo } from './features/todoSlice';
-import { Checkbox } from '@material-ui/core'
 
 function App() {
+  const [filter, setFilter] = React.useState('');
   const todoList = useSelector(listTodo);
+
   return (
     <div className="app">
       <div className="app__container">
-        <div className="app__todoContainer">
-          <p> Todo List </p>
-          <div className="app__checkAll">
-            <Checkbox />
-            <button>
-              Delete
-            </button>
-          </div>
+        <p> Todo List </p>
+        <div className="app__checkAll">
+          <input placeholder="Tìm kiếm..." onChange={(e) => setFilter(e.target.value)} />
+        </div>
+        <div className="app__listTodo">
           {
-            todoList.length > 0 ? todoList.map((todo) => (
-              <TodoItem
-                key={todo.id}
-                name={todo.item}
-                done={todo.done}
-                id={todo.id}
-              />
-            )) : (
+            todoList.length > 0 ? todoList
+              .filter((item) => item.item.toLowerCase().includes(filter.toLowerCase()))
+              .map((todo) => (
+                <TodoItem
+                  key={todo.id}
+                  name={todo.item}
+                  done={todo.done}
+                  id={todo.id}
+                />
+              )) : (
               <center>
                 <p>No todo's to show</p>
               </center>

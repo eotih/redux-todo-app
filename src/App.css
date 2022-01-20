@@ -17,15 +17,19 @@
     padding: 32px 0;
 }
 
-.app__todoContainer {
-    flex: 1;
+.app__listTodo {
+    height: 100%;
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+    overflow: auto;
+    overflow-x: hidden;
+    margin-bottom: 10px;
 }
 
-.app__todoContainer>p {
+.app__container>p {
     margin: 0;
     font-size: 26px;
     font-weight: bold;
@@ -40,10 +44,12 @@
     width: 80%;
     border-bottom: 1px solid #ccc;
 }
-button{
+
+button {
     cursor: pointer;
 
 }
+
 @media (max-width: 500px) {
     .app__container {
         width: 100%;
@@ -52,8 +58,14 @@ button{
 
 @media (max-width: 1024px) {
     .app__container {
-        height: 500px;
         width: 100%;
     }
 
+}
+
+@media (max-width: 768px) {
+    .app__container {
+        height: 500px;
+        width: 100%;
+    }
 }

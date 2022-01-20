@@ -29,6 +29,17 @@ const todoSlice = createSlice({
                 }
             })
         },
+        setCheckAll: (state, action) => {
+            state.todoList.map((item) => {
+                if (action.payload === true) {
+                    item.done = true;
+                    saveTodoList(state.todoList);
+                } else {
+                    item.done = false;
+                    saveTodoList(state.todoList);
+                }
+            })
+        },
         removeTodo: (state, action) => {
             state.todoList = state.todoList.filter((item) => item.id !== action.payload);
             saveTodoList(state.todoList);
@@ -45,7 +56,7 @@ const todoSlice = createSlice({
     },
 });
 
-export const { saveToDo, setCheck, removeTodo, editTodo } = todoSlice.actions;
+export const { saveToDo, setCheck, removeTodo, editTodo, setCheckAll } = todoSlice.actions;
 
 export const listTodo = state => state.todos.todoList;
 
