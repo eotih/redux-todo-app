@@ -3,15 +3,22 @@ import './App.css';
 import Input from './components/Input';
 import TodoItem from './components/TodoItem';
 import { useSelector } from 'react-redux';
-import { selectTodoList } from './features/todoSlice';
+import { listTodo } from './features/todoSlice';
+import { Checkbox } from '@material-ui/core'
 
 function App() {
-  const todoList = useSelector(selectTodoList);
+  const todoList = useSelector(listTodo);
   return (
     <div className="app">
       <div className="app__container">
         <div className="app__todoContainer">
           <p> Todo List </p>
+          <div className="app__checkAll">
+            <Checkbox />
+            <button>
+              Delete
+            </button>
+          </div>
           {
             todoList.length > 0 ? todoList.map((todo) => (
               <TodoItem

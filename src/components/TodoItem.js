@@ -46,7 +46,7 @@ const TodoItem = ({ name, done, id }) => {
                         onChange={(e) => setInput(e.target.value)}
                     />
                 ) : (
-                    <p className={done ? 'todoItem--done': null}>{name}</p>
+                    <p className={done ? 'todoItem--done' : null}>{name}</p>
                 )}
             </div>
             <div className="todoActions">

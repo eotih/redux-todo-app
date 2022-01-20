@@ -27,10 +27,23 @@
 
 .app__todoContainer>p {
     margin: 0;
-    font-size: 24px;
+    font-size: 26px;
     font-weight: bold;
 }
 
+.app__checkAll {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 80%;
+    border-bottom: 1px solid #ccc;
+}
+button{
+    cursor: pointer;
+
+}
 @media (max-width: 500px) {
     .app__container {
         width: 100%;
