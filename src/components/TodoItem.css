@@ -1,0 +1,21 @@
+.todoItem {
+    display: flex;
+    align-items: center;
+    /* justify-content: space-between; */
+    padding: 0.5rem;
+    border-bottom: 1px solid #ccc;
+    cursor: pointer;
+    width: 80%;
+    background-color: #fff;
+    margin: 6px 4px;
+    height: 40px;
+    border-radius: 12px;
+}
+
+.todoItem>p {
+    flex: 1;
+}
+
+.todoItem--done {
+    text-decoration: line-through;
+}
