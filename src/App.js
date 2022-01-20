@@ -11,14 +11,20 @@ function App() {
     <div className="app">
       <div className="app__container">
         <div className="app__todoContainer">
-          {todoList.map((todo) => (
-            <TodoItem
-              key={todo.id}
-              name={todo.item}
-              done={todo.done}
-              id={todo.id}
-            />
-          ))}
+          <p> Todo List </p>
+          {
+            todoList.length > 0 ? todoList.map((todo) => (
+              <TodoItem
+                key={todo.id}
+                name={todo.item}
+                done={todo.done}
+                id={todo.id}
+              />
+            )) : (
+              <center>
+                <p>No todo's to show</p>
+              </center>
+            )}
         </div>
         <Input />
       </div>

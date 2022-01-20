@@ -1,3 +1,4 @@
+/* eslint-disable array-callback-return */
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
@@ -21,11 +22,22 @@ const todoSlice = createSlice({
                     }
                 }
             })
+        },
+        removeTodo: (state, action) => {
+            state.todoList = state.todoList.filter((item) => item.id !== action.payload);
+        },
+        editTodo: (state, action) => {
+            // edit To do list
+            state.todoList = state.todoList.map((item) => item.id === action.payload.id ? {
+                ...item,
+                item: action.payload.name,
+                done: action.payload.done
+            } : item);
         }
     },
 });
 
-export const { saveToDo, setCheck } = todoSlice.actions;
+export const { saveToDo, setCheck, removeTodo, editTodo } = todoSlice.actions;
 
 export const selectTodoList = state => state.todos.todoList;
 
